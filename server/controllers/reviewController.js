@@ -1,12 +1,12 @@
 // controllers/reviewController.js
-const Review = require("../models/Review");
+import Review from "../models/Review.js";
 
-exports.getAllReviews = async (req, res) => {
+export const getAllReviews = async (req, res) => {
   const reviews = await Review.find().sort({ createdAt: -1 });
   res.json(reviews);
 };
 
-exports.createReview = async (req, res) => {
+export const createReview = async (req, res) => {
   const { title, content, image, rating } = req.body;
 
   const review = new Review({
@@ -20,13 +20,13 @@ exports.createReview = async (req, res) => {
   res.status(201).json(review);
 };
 
-exports.deleteReview = async (req, res) => {
+export const deleteReview = async (req, res) => {
   const { id } = req.params;
   await Review.findByIdAndDelete(id);
   res.status(204).send();
 };
 
-exports.likeReview = async (req, res) => {
+export const likeReview = async (req, res) => {
   const { id } = req.params;
   const review = await Review.findByIdAndUpdate(
     id,
@@ -36,7 +36,7 @@ exports.likeReview = async (req, res) => {
   res.json(review);
 };
 
-exports.markHelpful = async (req, res) => {
+export const markHelpful = async (req, res) => {
   const { id } = req.params;
   const review = await Review.findByIdAndUpdate(
     id,
@@ -46,7 +46,7 @@ exports.markHelpful = async (req, res) => {
   res.json(review);
 };
 
-exports.flagReview = async (req, res) => {
+export const flagReview = async (req, res) => {
   const { id } = req.params;
   const review = await Review.findByIdAndUpdate(
     id,
@@ -56,7 +56,7 @@ exports.flagReview = async (req, res) => {
   res.json(review);
 };
 
-exports.addComment = async (req, res) => {
+export const addComment = async (req, res) => {
   const { id } = req.params;
   const { content } = req.body;
 
@@ -65,4 +65,14 @@ exports.addComment = async (req, res) => {
   await review.save();
 
   res.status(201).json(review);
+};
+
+export default {
+  getAllReviews,
+  createReview,
+  deleteReview,
+  likeReview,
+  markHelpful,
+  flagReview,
+  addComment,
 };

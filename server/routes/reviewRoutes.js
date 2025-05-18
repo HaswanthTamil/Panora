@@ -1,7 +1,6 @@
 // routes/reviewRoutes.js
-const express = require("express");
-const router = express.Router();
-const {
+import express from "express";
+import {
   getAllReviews,
   createReview,
   deleteReview,
@@ -9,18 +8,16 @@ const {
   markHelpful,
   flagReview,
   addComment,
-} = require("../controllers/reviewController");
+} from "../controllers/reviewController.js";
+
+const router = express.Router();
 
 router.get("/", getAllReviews);
-router.post("/", createReview);
+router.post("/review", createReview);
 router.delete("/:id", deleteReview);
 router.post("/:id/like", likeReview);
 router.post("/:id/helpful", markHelpful);
 router.post("/:id/flag", flagReview);
 router.post("/:id/comment", addComment);
 
-module.exports = router;
-
-// router.get("/", (req, res) => {
-//   res.json({ message: "Panora backend is alive 😎" });
-// });
+export default router;

@@ -5,6 +5,10 @@ const {
   getAllReviews,
   createReview,
   deleteReview,
+  likeReview,
+  markHelpful,
+  flagReview,
+  addComment,
 } = require("../controllers/reviewController");
 
 router.get("/", getAllReviews);

@@ -1,6 +1,13 @@
 {
   "dependencies": {
     "@heroicons/react": "^2.2.0",
-    "react-router-dom": "^7.6.0"
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.6.0",
+    "@fortawesome/fontawesome-svg-core": "^6.x.x",
+    "@fortawesome/free-solid-svg-icons": "^6.x.x",
+    "@fortawesome/react-fontawesome": "^0.x.x"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21"
   }
 }

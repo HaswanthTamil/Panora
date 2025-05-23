@@ -6,6 +6,7 @@ import Post from "./pages/Post.jsx"
 import NotFound from "./pages/NotFound.jsx"
 import { Routes, Route } from "react-router-dom"
 import NewPost from "./pages/NewPost.jsx"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 function App() {
   return (
